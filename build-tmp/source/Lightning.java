@@ -22,17 +22,28 @@ int endY = 150;
 public void setup()
 {
   size(300,300);
-  strokeWeight(5);
+  strokeWeight(1);
   background(0);
 
 }
 public void draw()
 {
- stroke((int)(Math.random()*256));
+ 
+ while(endX < 300){
+ 	endX = startX + (int)(Math.random()*9);
+ 	stroke((int)(Math.random()*255),(int)(Math.random()*255),(int)(Math.random()*255));
+    endY = startY + (int)(Math.random()*18-9);
+    line(startX,startY,endX,endY);
+    startX = endX;
+    startY = endY;
+}
 }
 public void mousePressed()
 {
-
+startX = 0;
+startY = 150;
+endX = 0;
+endY = 150;
 }
 
   static public void main(String[] passedArgs) {
